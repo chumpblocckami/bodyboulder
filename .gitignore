@@ -1,0 +1,8 @@
+# Developer signing key: never commit it, anyone holding it can sign apps as you.
+keys/
+
+# Third-party downloads (see README > Setup); bin/ also covers the gymlog/bin build output.
+bin/
+sdkmanager/
+*.zip
+__pycache__/
