@@ -45,9 +45,9 @@ class MainView extends WatchUi.View {
                 break;
             case STATE_LIFT:
                 drawStatusBar(dc, cx, h);
-                drawCentered(dc, cx, h * 27 / 100, Graphics.FONT_MEDIUM, LIME,
-                    _workout.exerciseName() + " #" + (_workout.setsThisExercise + 1));
-                drawCentered(dc, cx, h * 41 / 100, Graphics.FONT_SMALL, Graphics.COLOR_WHITE, setText());
+                drawCentered(dc, cx, h * 27 / 100, Graphics.FONT_MEDIUM, LIME, _workout.exerciseName());
+                drawCentered(dc, cx, h * 41 / 100, Graphics.FONT_SMALL, Graphics.COLOR_WHITE,
+                    "Set " + (_workout.setsThisExercise + 1) + " - " + setText());
                 drawPhaseClock(dc, cx, h * 62 / 100);
                 drawCentered(dc, cx, h * 85 / 100, Graphics.FONT_XTINY, MUTED, "START = stop");
                 break;

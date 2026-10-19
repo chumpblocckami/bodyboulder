@@ -4,7 +4,7 @@ A Connect IQ watch app for the **Garmin Forerunner 165** that times a gym sessio
 Every set and every rest is timed, logged as a lap, and saved as a Strength Training activity
 to Garmin Connect (and from there to Strava).
 
-<img src="gymlog/resources/drawables/launcher_icon.png" width="54" alt="BodyBoulder icon">
+![Start screen, reps/kg picker, set running past the 1:00 minimum, rest](docs/screens.png)
 
 ## How a session works
 
@@ -18,6 +18,11 @@ to Garmin Connect (and from there to Strava).
    also marks the start of the session.
 
 **Cardio** is timer-only: no reps or kg are asked, useful for the warm-up.
+
+Built-in exercises (28), grouped by muscle: bench press, incline bench, chest fly, push-up, dip,
+lat pulldown, row, seated row, pull-up, deadlift, shoulder press, lateral raise, face pull,
+shrug, biceps curl, hammer curl, triceps extension, pushdown, squat, leg press, leg extension,
+leg curl, Romanian deadlift, lunge, hip thrust, calf raise, ab crunch, plus cardio.
 
 ### Controls
 
@@ -91,7 +96,7 @@ The simulator does not vibrate; the timer turns green when each minimum is reach
 
 Exercises, default weights and the minimum set / rest times live in
 [`gymlog/source/Exercises.mc`](gymlog/source/Exercises.mc). Keep `NAMES` and `DEFAULT_KG`
-the same length.
+the same length, and names to about 14 characters so they fit the round screen.
 
 ## Project layout
 
