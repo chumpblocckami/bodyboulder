@@ -8,8 +8,8 @@ to Garmin Connect (and from there to Strava).
 
 ## How a session works
 
-1. **Start**: recording begins and a "Get ready" timer runs. Pick the exercise with UP/DOWN.
-2. **START**: choose reps and kg (pre-filled with your last values for that exercise).
+1. **Start**: recording begins and a "Get ready" timer runs. Pick the muscle group with UP/DOWN.
+2. **START**: choose reps and kg, in 5 kg steps (pre-filled with your last values for that muscle group).
 3. **Confirm**: a small vibration, then the set timer counts up. At **1:00** another small
    vibration tells you the minimum set time is reached.
 4. **START**: the set is stored and the rest timer counts up. At **1:30** a small vibration
@@ -19,30 +19,28 @@ to Garmin Connect (and from there to Strava).
 
 **Cardio** is timer-only: no reps or kg are asked, useful for the warm-up.
 
-Built-in exercises (28), grouped by muscle: bench press, incline bench, chest fly, push-up, dip,
-lat pulldown, row, seated row, pull-up, deadlift, shoulder press, lateral raise, face pull,
-shrug, biceps curl, hammer curl, triceps extension, pushdown, squat, leg press, leg extension,
-leg curl, Romanian deadlift, lunge, hip thrust, calf raise, ab crunch, plus cardio.
+Sets are tracked per muscle group, not per exercise: chest, back, shoulders, biceps, triceps,
+legs, abs, plus cardio.
 
 ### Controls
 
 | Button | Action |
 | --- | --- |
-| START (top right) or tap | Start session, open picker, start / stop a set |
-| UP / DOWN | Change exercise (during rest) |
-| Hold UP | Full exercise list |
-| BACK | Resume, change exercise, save & finish, discard |
+| START (top right) | Start session, open picker, start / stop a set (taps are ignored) |
+| UP / DOWN | Change muscle group (during rest) |
+| Hold UP | Full muscle group list |
+| BACK | Resume, change muscle group, save & finish, discard |
 
 ## What gets saved
 
-- One FIT lap per set and per rest. Set laps carry `exercise`, `reps` and `weight` as
+- One FIT lap per set and per rest. Set laps carry `muscle`, `reps` and `weight` as
   developer fields; rest laps are named "Rest".
 - Session totals: number of sets and volume (reps × kg).
 - Garmin Connect shows the laps and the custom fields. Connect IQ apps cannot write Garmin's
   native strength "sets", so the exercises do not appear in Connect's Sets tab.
 - Strava receives the activity automatically if Garmin Connect is linked to Strava
   (Garmin Connect app → Settings → Connected Apps → Strava). Strava shows laps, time and
-  heart rate, but not the exercise names, reps or weight.
+  heart rate, but not the muscle groups, reps or weight.
 
 ## Setup (Linux)
 
@@ -94,7 +92,7 @@ The simulator does not vibrate; the timer turns green when each minimum is reach
 
 ## Customising
 
-Exercises, default weights and the minimum set / rest times live in
+Muscle groups, default weights and the minimum set / rest times live in
 [`gymlog/source/Exercises.mc`](gymlog/source/Exercises.mc). Keep `NAMES` and `DEFAULT_KG`
 the same length, and names to about 14 characters so they fit the round screen.
 
@@ -105,7 +103,7 @@ gymlog/                 the watch app
   source/Workout.mc     session state, timers, vibrations, FIT laps
   source/MainView.mc    screens
   source/MainDelegate.mc, Menus.mc, SetPicker.mc   input handling
-  source/Exercises.mc   exercise list and timings
+  source/Exercises.mc   muscle groups and timings
   build.sh              build / install / simulator
 sim/                    Docker simulator and the press.py automation helper
 run-sdkmanager.sh       optional: runs Garmin's GUI SDK manager on Ubuntu 24.04 (via compat-libs/)

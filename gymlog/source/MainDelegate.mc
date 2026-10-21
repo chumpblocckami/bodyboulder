@@ -10,7 +10,7 @@ class MainDelegate extends WatchUi.BehaviorDelegate {
         _workout = workout;
     }
 
-    // START button or screen tap.
+    // START button.
     function onSelect() as Boolean {
         switch (_workout.state) {
             case STATE_READY:
@@ -30,6 +30,11 @@ class MainDelegate extends WatchUi.BehaviorDelegate {
                 System.exit();
         }
         WatchUi.requestUpdate();
+        return true;
+    }
+
+    // Consuming taps keeps them from becoming onSelect, so only START drives the workout.
+    function onTap(clickEvent as WatchUi.ClickEvent) as Boolean {
         return true;
     }
 

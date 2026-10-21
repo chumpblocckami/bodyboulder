@@ -6,3 +6,4 @@ bin/
 sdkmanager/
 *.zip
 __pycache__/
+sim/out/

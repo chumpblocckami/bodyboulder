@@ -5,7 +5,7 @@ function openWorkoutMenu(workout as Workout) as Void {
     var menu = new WatchUi.Menu2({ :title => "Workout" });
     menu.addItem(new WatchUi.MenuItem("Resume", null, :resume, null));
     if (workout.state == STATE_REST) {
-        menu.addItem(new WatchUi.MenuItem("Change exercise", workout.exerciseName(), :exercise, null));
+        menu.addItem(new WatchUi.MenuItem("Change muscle", workout.exerciseName(), :exercise, null));
     }
     menu.addItem(new WatchUi.MenuItem("Save & finish", workout.totalSets + " sets", :save, null));
     menu.addItem(new WatchUi.MenuItem("Discard", null, :discard, null));
@@ -13,7 +13,7 @@ function openWorkoutMenu(workout as Workout) as Void {
 }
 
 function openExerciseMenu(workout as Workout) as Void {
-    var menu = new WatchUi.Menu2({ :title => "Exercise" });
+    var menu = new WatchUi.Menu2({ :title => "Muscle group" });
     for (var i = 0; i < Exercises.NAMES.size(); i++) {
         menu.addItem(new WatchUi.MenuItem(Exercises.NAMES[i], workout.setLabel(i), i, null));
     }

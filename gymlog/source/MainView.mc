@@ -40,7 +40,7 @@ class MainView extends WatchUi.View {
             case STATE_READY:
                 drawCentered(dc, cx, h * 30 / 100, Graphics.FONT_MEDIUM, LIME, "BODYBOULDER");
                 drawCentered(dc, cx, h * 52 / 100, Graphics.FONT_SMALL, Graphics.COLOR_WHITE, "Press START");
-                drawCentered(dc, cx, h * 68 / 100, Graphics.FONT_XTINY, MUTED, "swipe to pick exercise");
+                drawCentered(dc, cx, h * 68 / 100, Graphics.FONT_XTINY, MUTED, "swipe to pick muscle");
                 drawCentered(dc, cx, h * 80 / 100, Graphics.FONT_XTINY, MUTED, _workout.exerciseName());
                 break;
             case STATE_LIFT:
@@ -86,8 +86,10 @@ class MainView extends WatchUi.View {
                 hr = bpm.toString();
             }
         }
-        drawCentered(dc, cx, h * 13 / 100, Graphics.FONT_XTINY, MUTED,
-            elapsed + "   " + hr + " bpm   " + _workout.totalSets + " sets");
+        // The top of the round screen is narrow: the total time gets its own line.
+        drawCentered(dc, cx, h * 9 / 100, Graphics.FONT_XTINY, Graphics.COLOR_WHITE, elapsed);
+        drawCentered(dc, cx, h * 16 / 100, Graphics.FONT_XTINY, MUTED,
+            hr + " bpm  " + _workout.totalSets + " sets");
     }
 
     // Count-up clock for the current set or rest; turns lime once the minimum is reached.

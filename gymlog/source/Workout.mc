@@ -13,7 +13,7 @@ enum WorkoutState {
     STATE_DONE
 }
 
-// Every set and every rest is its own FIT lap; set laps carry exercise, reps and
+// Every set and every rest is its own FIT lap; set laps carry muscle group, reps and
 // weight as developer fields (rest laps carry "Rest", 0, 0). Connect IQ cannot
 // write native strength "set" messages.
 class Workout {
@@ -51,7 +51,7 @@ class Workout {
             :sport => Activity.SPORT_TRAINING,
             :subSport => Activity.SUB_SPORT_STRENGTH_TRAINING
         });
-        _exerciseField = session.createField("exercise", 0, FitContributor.DATA_TYPE_STRING,
+        _exerciseField = session.createField("muscle", 0, FitContributor.DATA_TYPE_STRING,
             { :mesgType => FitContributor.MESG_TYPE_LAP, :count => 16 });
         _repsField = session.createField("reps", 1, FitContributor.DATA_TYPE_UINT16,
             { :mesgType => FitContributor.MESG_TYPE_LAP, :units => "reps" });
